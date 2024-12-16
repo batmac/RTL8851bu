@@ -1,6 +1,6 @@
 EXTRA_CFLAGS += $(USER_EXTRA_CFLAGS)
-EXTRA_CFLAGS += -O1
-#EXTRA_CFLAGS += -O3
+#EXTRA_CFLAGS += -O1
+EXTRA_CFLAGS += -O2
 #EXTRA_CFLAGS += -Wall
 #EXTRA_CFLAGS += -Wextra
 #EXTRA_CFLAGS += -Werror
@@ -35,7 +35,8 @@ ifeq ($(GCC_VER_49),1)
 EXTRA_CFLAGS += -Wno-date-time	# Fix compile error && warning on gcc 4.9 and later
 endif
 
-EXTRA_CFLAGS += -I$(shell pwd)/include
+#EXTRA_CFLAGS += -I$(shell pwd)/include
+EXTRA_CFLAGS += -I$(src)/include
 
 EXTRA_LDFLAGS += --strip-debug
 
@@ -80,7 +81,7 @@ CONFIG_RTW_REGDB = rtk_64-40
 
 ########################## Initial Channel Plan  ##########################
 # XX: unspecified
-CONFIG_RTW_COUNTRY_CODE = XX
+CONFIG_RTW_COUNTRY_CODE = FR
 # 0xFFFF: unspecified
 CONFIG_RTW_CHPLAN = 0xFFFF
 # 0xFFFF: unspecified
@@ -151,7 +152,7 @@ EXTRA_CFLAGS += -DCONFIG_RTW_ANDROID=$(CONFIG_RTW_ANDROID)
 endif
 
 ########################## Debug ###########################
-CONFIG_RTW_DEBUG = y
+CONFIG_RTW_DEBUG = n
 # default log level is _DRV_INFO_ = 4,
 # please refer to "How_to_set_driver_debug_log_level.doc" to set the available level.
 CONFIG_RTW_LOG_LEVEL = 4
